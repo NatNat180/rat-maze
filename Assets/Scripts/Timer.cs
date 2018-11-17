@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
 
     public float timeLeft;
+	public TextMeshProUGUI timerText;
 
     void Start()
     {
@@ -21,7 +23,7 @@ public class Timer : MonoBehaviour
             timeLeft -= Time.deltaTime;
             string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
             string seconds = (timeLeft % 60).ToString("00");
-            Debug.Log("Time left = " + string.Format("{0}:{1}", minutes, seconds));
+			timerText.text = string.Format("{0}:{1}", minutes, seconds);
             if (timeLeft <= 0)
             {
                 SceneManager.LoadScene("GameOver");
