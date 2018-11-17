@@ -7,6 +7,7 @@ public class Rat : MonoBehaviour {
     private Rigidbody ratBody;
     private float speed = 3f;
     private bool moveToggle = false;
+    public static bool RatInMaze = true; // set to false when the game is ready
 
     void Start()
     {
