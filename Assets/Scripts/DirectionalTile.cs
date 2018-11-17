@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectionalTile : MonoBehaviour {
+public class DirectionalTile : MonoBehaviour
+{
 
     private const string UP = "UP";
     private const string RIGHT = "RIGHT";
     private const string DOWN = "DOWN";
     private const string LEFT = "LEFT";
     private string currentDirection;
+    public Renderer upArrow;
+    public Renderer leftArrow;
+    public Renderer rightArrow;
+    public Renderer downArrow;
+    private Color originalColor;
 
     public string CurrentDirection
     {
@@ -18,29 +24,38 @@ public class DirectionalTile : MonoBehaviour {
     void Start()
     {
         currentDirection = UP;
+        originalColor = new Color32(32, 59, 132, 255);
+        upArrow.material.color = Color.green;
     }
 
     void Update()
     {
-		Debug.Log(currentDirection);
+        Debug.Log(currentDirection);
     }
 
     void OnMouseDown()
     {
-        transform.Rotate(0, 90, 0);
         switch (currentDirection)
         {
             case UP:
                 currentDirection = RIGHT;
+                upArrow.material.color = originalColor;
+                rightArrow.material.color = Color.green;
                 break;
             case RIGHT:
                 currentDirection = DOWN;
+                rightArrow.material.color = originalColor;
+                downArrow.material.color = Color.green;
                 break;
             case DOWN:
                 currentDirection = LEFT;
+                downArrow.material.color = originalColor;
+                leftArrow.material.color = Color.green;
                 break;
             case LEFT:
                 currentDirection = UP;
+                leftArrow.material.color = originalColor;
+                upArrow.material.color = Color.green;
                 break;
             default:
                 break;

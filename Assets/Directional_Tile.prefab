@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114925049292798684}
   - component: {fileID: 64533541895693908}
   m_Layer: 0
-  m_Name: Cone (3)
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 114779421229776856}
   - component: {fileID: 64631687455550860}
   m_Layer: 0
-  m_Name: Cone (2)
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,8 +64,9 @@ GameObject:
   - component: {fileID: 33981355310456868}
   - component: {fileID: 114261831673345076}
   - component: {fileID: 64607892135568652}
+  - component: {fileID: 114219716156177844}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +80,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4379416981425992}
+  - component: {fileID: 65201048241007562}
+  - component: {fileID: 114700356246928804}
   m_Layer: 0
   m_Name: Directional_Tile
   m_TagString: Untagged
@@ -100,7 +103,7 @@ GameObject:
   - component: {fileID: 114151960777016000}
   - component: {fileID: 64447606828691906}
   m_Layer: 0
-  m_Name: Cone
+  m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +123,7 @@ GameObject:
   - component: {fileID: 114170305463910780}
   - component: {fileID: 64524892340308444}
   m_Layer: 0
-  m_Name: Cone (1)
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,6 +492,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!65 &65201048241007562
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742748476186038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5191165, y: 0.4895258, z: 1.462996}
+  m_Center: {x: 0.021045148, y: 0.028409481, z: -0.02104497}
 --- !u!114 &114025144228586790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1445,6 +1460,21 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!114 &114219716156177844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704786964093216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630678a61e335e4459668789a1537eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upArrow: {fileID: 23941542512523480}
+  leftArrow: {fileID: 23529872921266346}
+  rightArrow: {fileID: 23698635649311034}
+  downArrow: {fileID: 23424494200684146}
 --- !u!114 &114261831673345076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1743,6 +1773,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 0
+--- !u!114 &114700356246928804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742748476186038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630678a61e335e4459668789a1537eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upArrow: {fileID: 23941542512523480}
+  leftArrow: {fileID: 23529872921266346}
+  rightArrow: {fileID: 23698635649311034}
+  downArrow: {fileID: 23424494200684146}
 --- !u!114 &114779421229776856
 MonoBehaviour:
   m_ObjectHideFlags: 1
