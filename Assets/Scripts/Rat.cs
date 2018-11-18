@@ -57,13 +57,5 @@ public class Rat : MonoBehaviour
                     break;
             }
         }
-
-        // turn rat around if it collides with wall
-        if (collider.transform.tag == "Wall")
-        {
-            Vector3 rotateAngles = transform.rotation.eulerAngles;
-            rotateAngles = new Vector3(rotateAngles.x, rotateAngles.y + 180, rotateAngles.z);
-            transform.rotation = Quaternion.Euler(rotateAngles);
-        }
     }
 }
