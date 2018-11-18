@@ -18,7 +18,7 @@ public class Rat : MonoBehaviour
     void Update()
     {
         // Get movement toggle from spacebar
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("RatGo") )
         {
             moveToggle = !moveToggle;
         }
