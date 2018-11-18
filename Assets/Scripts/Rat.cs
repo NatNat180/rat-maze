@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rat : MonoBehaviour {
 
     private Rigidbody ratBody;
-    public float speed = .3f;
+    public float speed = 0.3f;
     private bool moveToggle = false;
     public static bool RatInMaze = true; // set to false when the game is ready
 
