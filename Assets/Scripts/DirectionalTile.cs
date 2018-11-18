@@ -23,9 +23,9 @@ public class DirectionalTile : MonoBehaviour
 
     void Start()
     {
-        currentDirection = DOWN;
+        currentDirection = RIGHT;
         originalColor = new Color32(32, 59, 132, 255);
-        downArrow.material.color = Color.green;
+        rightArrow.material.color = Color.green;
     }
 
     void OnTriggerEnter(Collider collider)
