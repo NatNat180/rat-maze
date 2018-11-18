@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rat : MonoBehaviour {
+public class Rat : MonoBehaviour
+{
 
     private Rigidbody ratBody;
     public float speed = 0.3f;
@@ -55,6 +56,14 @@ public class Rat : MonoBehaviour {
                 default:
                     break;
             }
+        }
+
+        // turn rat around if it collides with wall
+        if (collider.transform.tag == "Wall")
+        {
+            Vector3 rotateAngles = transform.rotation.eulerAngles;
+            rotateAngles = new Vector3(rotateAngles.x, rotateAngles.y + 180, rotateAngles.z);
+            transform.rotation = Quaternion.Euler(rotateAngles);
         }
     }
 }
