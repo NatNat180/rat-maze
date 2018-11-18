@@ -23,10 +23,43 @@ public class DirectionalTile : MonoBehaviour
 
     void Start()
     {
-        currentDirection = RIGHT;
+        currentDirection = DOWN;
         originalColor = new Color32(32, 59, 132, 255);
-        rightArrow.material.color = Color.green;
+        downArrow.material.color = Color.green;
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (currentDirection)
+            {
+                case UP:
+                    currentDirection = RIGHT;
+                    upArrow.material.color = originalColor;
+                    rightArrow.material.color = Color.green;
+                    break;
+                case RIGHT:
+                    currentDirection = DOWN;
+                    rightArrow.material.color = originalColor;
+                    downArrow.material.color = Color.green;
+                    break;
+                case DOWN:
+                    currentDirection = LEFT;
+                    downArrow.material.color = originalColor;
+                    leftArrow.material.color = Color.green;
+                    break;
+                case LEFT:
+                    currentDirection = UP;
+                    leftArrow.material.color = originalColor;
+                    upArrow.material.color = Color.green;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
 
     void OnTriggerEnter(Collider collider)
     {
