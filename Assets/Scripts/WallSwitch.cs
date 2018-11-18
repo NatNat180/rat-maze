@@ -5,18 +5,21 @@ using UnityEngine;
 public class WallSwitch : MonoBehaviour
 {
 
-    public Transform movableWall;
+    public Transform[] movableWalls;
     private float smoothMotion = 5.0f;
-    private Quaternion originalRotation;
-    private Quaternion ninetyDegrees = Quaternion.Euler(0, 90, 0);
-    private Quaternion zeroDegrees = Quaternion.Euler(0, 0, 0);
+    private Quaternion[] originalRotations;
+	public Vector3 neededRotation;
     private bool isSwitchPressed;
     private bool coolDownActive;
     private float coolDownTimer = 1.5f;
 
     void Start()
     {
-        originalRotation = movableWall.rotation;
+		originalRotations = new Quaternion[movableWalls.Length];
+		for (int i = 0; i < movableWalls.Length; i++) {
+			originalRotations[i] = movableWalls[i].rotation;
+		}
+
         isSwitchPressed = false;
         coolDownActive = false;
     }
@@ -42,11 +45,17 @@ public class WallSwitch : MonoBehaviour
 
         if (isSwitchPressed)
         {
-            movableWall.rotation = Quaternion.Slerp(movableWall.rotation, ninetyDegrees, Time.deltaTime * smoothMotion);
+            for (int i = 0; i < movableWalls.Length; i++)
+            {
+                movableWalls[i].rotation = Quaternion.Slerp(movableWalls[i].rotation, Quaternion.Euler(neededRotation), Time.deltaTime * smoothMotion);
+            }
         }
         else
         {
-            movableWall.rotation = Quaternion.Slerp(movableWall.rotation, originalRotation, Time.deltaTime * smoothMotion);
+            for (int i = 0; i < movableWalls.Length; i++)
+            {
+                movableWalls[i].rotation = Quaternion.Slerp(movableWalls[i].rotation, originalRotations[i], Time.deltaTime * smoothMotion);
+            }
         }
 
         if (coolDownActive == true)
@@ -57,7 +66,7 @@ public class WallSwitch : MonoBehaviour
         if (coolDownTimer <= 0f)
         {
             coolDownActive = false;
-            coolDownTimer = 3.0f;
+            coolDownTimer = 1.5f;
         }
     }
 }
