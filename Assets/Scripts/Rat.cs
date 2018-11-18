@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +38,7 @@ public class Rat : MonoBehaviour
     {
         if (collider.transform.tag == "DirectionalTile")
         {
+            transform.position = collider.transform.position;
             DirectionalTile tile = collider.gameObject.GetComponent<DirectionalTile>();
             switch (tile.CurrentDirection)
             {

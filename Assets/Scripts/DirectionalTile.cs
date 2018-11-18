@@ -23,9 +23,9 @@ public class DirectionalTile : MonoBehaviour
 
     void Start()
     {
-        currentDirection = RIGHT;
+        currentDirection = DOWN;
         originalColor = new Color32(32, 59, 132, 255);
-        rightArrow.material.color = Color.green;
+        downArrow.material.color = Color.green;
     }
 
     void Update()
