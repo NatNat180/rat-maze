@@ -34,7 +34,6 @@ public class DirectionalTile : MonoBehaviour
     }
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Trigger detected");
         if (collider.transform.tag == "HandPointer")
         {
             switch (currentDirection)

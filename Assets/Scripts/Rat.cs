@@ -37,8 +37,6 @@ public class Rat : MonoBehaviour {
     {
         if (collider.transform.tag == "DirectionalTile")
         {
-            Debug.Log("Colsission");
-
             DirectionalTile tile = collider.gameObject.GetComponent<DirectionalTile>();
             switch (tile.CurrentDirection)
             {

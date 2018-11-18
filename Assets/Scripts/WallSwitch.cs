@@ -8,17 +8,18 @@ public class WallSwitch : MonoBehaviour
     public Transform[] movableWalls;
     private float smoothMotion = 5.0f;
     private Quaternion[] originalRotations;
-	public Vector3 neededRotation;
+    public Vector3 neededRotation;
     private bool isSwitchPressed;
     private bool coolDownActive;
     private float coolDownTimer = 1.5f;
 
     void Start()
     {
-		originalRotations = new Quaternion[movableWalls.Length];
-		for (int i = 0; i < movableWalls.Length; i++) {
-			originalRotations[i] = movableWalls[i].rotation;
-		}
+        originalRotations = new Quaternion[movableWalls.Length];
+        for (int i = 0; i < movableWalls.Length; i++)
+        {
+            originalRotations[i] = movableWalls[i].rotation;
+        }
 
         isSwitchPressed = false;
         coolDownActive = false;
@@ -35,10 +36,6 @@ public class WallSwitch : MonoBehaviour
 
     void Update()
     {
-        // This if-condition will need to be taken out - using now for testing purposes
-
-        // This if-condition will need to be taken out - using now for testing purposes
-
         if (isSwitchPressed)
         {
             for (int i = 0; i < movableWalls.Length; i++)
