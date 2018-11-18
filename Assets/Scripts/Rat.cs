@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rat : MonoBehaviour {
+public class Rat : MonoBehaviour
+{
 
     private Rigidbody ratBody;
-    public float speed = .3f;
+    public float speed = 0.3f;
     private bool moveToggle = false;
     public static bool RatInMaze = true; // set to false when the game is ready
 
@@ -37,8 +38,6 @@ public class Rat : MonoBehaviour {
     {
         if (collider.transform.tag == "DirectionalTile")
         {
-            Debug.Log("Colsission");
-
             DirectionalTile tile = collider.gameObject.GetComponent<DirectionalTile>();
             switch (tile.CurrentDirection)
             {
@@ -57,6 +56,14 @@ public class Rat : MonoBehaviour {
                 default:
                     break;
             }
+        }
+
+        // turn rat around if it collides with wall
+        if (collider.transform.tag == "Wall")
+        {
+            Vector3 rotateAngles = transform.rotation.eulerAngles;
+            rotateAngles = new Vector3(rotateAngles.x, rotateAngles.y + 180, rotateAngles.z);
+            transform.rotation = Quaternion.Euler(rotateAngles);
         }
     }
 }
