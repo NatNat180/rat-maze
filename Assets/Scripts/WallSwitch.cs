@@ -11,7 +11,8 @@ public class WallSwitch : MonoBehaviour
     public Vector3 neededRotation;
     private bool isSwitchPressed;
     private bool coolDownActive;
-    private float coolDownTimer = 1.5f;
+    private float coolDownTimer = 3.0f;
+	private const float coolTime = 3.0f;
 
     void Start()
     {
@@ -59,7 +60,7 @@ public class WallSwitch : MonoBehaviour
         if (coolDownTimer <= 0f)
         {
             coolDownActive = false;
-            coolDownTimer = 1.5f;
+            coolDownTimer = coolTime;
         }
     }
 }
