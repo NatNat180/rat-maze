@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rat : MonoBehaviour {
 
     private Rigidbody ratBody;
-    private float speed = 3f;
+    public float speed = .3f;
     private bool moveToggle = false;
     public static bool RatInMaze = true; // set to false when the game is ready
 
@@ -37,6 +37,8 @@ public class Rat : MonoBehaviour {
     {
         if (collider.transform.tag == "DirectionalTile")
         {
+            Debug.Log("Colsission");
+
             DirectionalTile tile = collider.gameObject.GetComponent<DirectionalTile>();
             switch (tile.CurrentDirection)
             {

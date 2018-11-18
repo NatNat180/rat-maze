@@ -32,33 +32,37 @@ public class DirectionalTile : MonoBehaviour
     {
         Debug.Log(currentDirection);
     }
-
-    void OnMouseDown()
+    void OnTriggerEnter(Collider collider)
     {
-        switch (currentDirection)
+        Debug.Log("Trigger detected");
+        if (collider.transform.tag == "HandPointer")
         {
-            case UP:
-                currentDirection = RIGHT;
-                upArrow.material.color = originalColor;
-                rightArrow.material.color = Color.green;
-                break;
-            case RIGHT:
-                currentDirection = DOWN;
-                rightArrow.material.color = originalColor;
-                downArrow.material.color = Color.green;
-                break;
-            case DOWN:
-                currentDirection = LEFT;
-                downArrow.material.color = originalColor;
-                leftArrow.material.color = Color.green;
-                break;
-            case LEFT:
-                currentDirection = UP;
-                leftArrow.material.color = originalColor;
-                upArrow.material.color = Color.green;
-                break;
-            default:
-                break;
+            switch (currentDirection)
+            {
+                case UP:
+                    currentDirection = RIGHT;
+                    upArrow.material.color = originalColor;
+                    rightArrow.material.color = Color.green;
+                    break;
+                case RIGHT:
+                    currentDirection = DOWN;
+                    rightArrow.material.color = originalColor;
+                    downArrow.material.color = Color.green;
+                    break;
+                case DOWN:
+                    currentDirection = LEFT;
+                    downArrow.material.color = originalColor;
+                    leftArrow.material.color = Color.green;
+                    break;
+                case LEFT:
+                    currentDirection = UP;
+                    leftArrow.material.color = originalColor;
+                    upArrow.material.color = Color.green;
+                    break;
+                default:
+                    break;
+            }
         }
     }
+
 }

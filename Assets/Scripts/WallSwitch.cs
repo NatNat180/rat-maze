@@ -36,11 +36,7 @@ public class WallSwitch : MonoBehaviour
     void Update()
     {
         // This if-condition will need to be taken out - using now for testing purposes
-        if (Input.GetKeyDown(KeyCode.Space) && coolDownActive == false)
-        {
-            coolDownActive = true;
-            isSwitchPressed = !isSwitchPressed;
-        }
+
         // This if-condition will need to be taken out - using now for testing purposes
 
         if (isSwitchPressed)
