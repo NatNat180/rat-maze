@@ -28,10 +28,6 @@ public class DirectionalTile : MonoBehaviour
         downArrow.material.color = Color.green;
     }
 
-    void Update()
-    {
-        Debug.Log(currentDirection);
-    }
     void OnTriggerEnter(Collider collider)
     {
         if (collider.transform.tag == "HandPointer")

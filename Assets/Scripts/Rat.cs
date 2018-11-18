@@ -9,10 +9,12 @@ public class Rat : MonoBehaviour
     public float speed = 0.3f;
     private bool moveToggle = false;
     public static bool RatInMaze = true; // set to false when the game is ready
+    private Animator animator;
 
     void Start()
     {
         ratBody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -39,7 +41,8 @@ public class Rat : MonoBehaviour
         if (collider.transform.tag == "DirectionalTile")
         {
             transform.position = collider.transform.position;
-            DirectionalTile tile = collider.gameObject.GetComponent<DirectionalTile>();
+            //ratTurn();
+            DirectionalTile tile = collider.gameObject.GetComponentInChildren<DirectionalTile>();
             switch (tile.CurrentDirection)
             {
                 case "UP":
@@ -59,4 +62,10 @@ public class Rat : MonoBehaviour
             }
         }
     }
+
+    /*private void ratTurn()
+    {
+        ratBody.velocity = Vector3.zero;
+        animator.SetTrigger("Turning");
+    }*/
 }
