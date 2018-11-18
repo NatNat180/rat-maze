@@ -27,7 +27,7 @@ public class WallSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ("Rat".Equals(other.tag))
+        if (other.transform.tag == "Rat")
         {
             coolDownActive = true;
             isSwitchPressed = !isSwitchPressed;
