@@ -10,6 +10,7 @@ public class Rat : MonoBehaviour
     public static bool RatInMaze = true; // set to false when the game is ready
     private bool isRatMoving = true;
     private Animator animator;
+    private float rotationSpeed = 5.0f;
 
     void Start()
     {
@@ -52,12 +53,14 @@ public class Rat : MonoBehaviour
                 default:
                     break;
             }
-            
+
+            float sum = ratBody.rotation.eulerAngles.y + 180;
             if (ratBody.rotation.eulerAngles != currentTileDirection.eulerAngles
-                && ratBody.rotation.eulerAngles != Quaternion.Inverse(currentTileDirection).eulerAngles)
+                && ratBody.rotation.eulerAngles != Quaternion.Inverse(currentTileDirection).eulerAngles
+                && (ratBody.rotation.eulerAngles.y + 180).ToString() != currentTileDirection.eulerAngles.y.ToString()
+                && (ratBody.rotation.eulerAngles.y - 180).ToString() != currentTileDirection.eulerAngles.y.ToString())
             {
                 isRatMoving = false;
-                animator.SetTrigger("Turning");
                 StartCoroutine(RatTurnAnimate(collider, currentTileDirection));
             }
             else
@@ -69,9 +72,30 @@ public class Rat : MonoBehaviour
 
     IEnumerator RatTurnAnimate(Collider collider, Quaternion tileDirection)
     {
-        transform.position = collider.transform.position;
-        yield return new WaitForSeconds(2f);
-        transform.rotation = tileDirection;
+        float elapsedTime = 0.0f;
+        float time = 1.0f;
+        animator.SetTrigger("Turning");
+
+        // lerp location change of mouse
+        while (elapsedTime < time)
+        {
+            elapsedTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, collider.transform.position, (elapsedTime / time));
+            yield return new WaitForEndOfFrame();
+        }
+
+        // reset elapsed time in preparation for use in rotation
+        elapsedTime = 0.0f;
+
+        // rotate mouse
+        Quaternion startingRotation = transform.rotation;
+        while (elapsedTime < time)
+        {
+            elapsedTime += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(startingRotation, tileDirection, (elapsedTime / time) * rotationSpeed);
+            yield return new WaitForEndOfFrame();
+        }
         isRatMoving = true;
     }
+
 }
