@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rat : MonoBehaviour
 {
-
+    public AudioClip Click;
     private Rigidbody ratBody;
     public float speed = 0.3f;
     public static bool RatInMaze = false;
@@ -118,7 +118,10 @@ public class Rat : MonoBehaviour
         //     yield return new WaitForEndOfFrame();
         // }
         // isRatMoving = true;
-
+        AudioSource audio = GetComponent<AudioSource>();
+        
+        audio.clip = Click;
+        audio.Play();
         animator.SetTrigger("Turning");
         float elapsedTime = 0.0f;
         float time = 0.75f;

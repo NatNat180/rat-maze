@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallSwitch : MonoBehaviour
 {
-
+    public AudioClip Click;
     public Transform[] movableWalls;
     private float smoothMotion = 5.0f;
     private Quaternion[] originalRotations;
@@ -30,8 +30,12 @@ public class WallSwitch : MonoBehaviour
     {
         if (other.transform.tag == "Rat" && coolDownActive == false)
         {
+            AudioSource audio = GetComponent<AudioSource>();
             coolDownActive = true;
             isSwitchPressed = !isSwitchPressed;
+
+            audio.clip = Click;
+            audio.Play();
         }
     }
 
