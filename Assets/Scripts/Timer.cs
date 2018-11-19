@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
 public class Timer : MonoBehaviour
 {
-
+    public AudioClip Click;
     public float timeLeft;
 	public TextMeshPro timerText;
 
@@ -20,6 +21,10 @@ public class Timer : MonoBehaviour
     {
         if (Rat.RatInMaze == true)
         {
+            AudioSource audio = GetComponent<AudioSource>();
+
+            audio.clip = Click;
+            audio.Play();
             timeLeft -= Time.deltaTime;
             string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
             string seconds = (timeLeft % 60).ToString("00");
