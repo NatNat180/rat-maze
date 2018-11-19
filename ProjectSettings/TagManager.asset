@@ -8,6 +8,7 @@ TagManager:
   - DirectionalTile
   - Wall
   - Rat
+  - ResetButton
   layers:
   - Default
   - TransparentFX

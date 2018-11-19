@@ -12,6 +12,7 @@ public class Rat : MonoBehaviour
     private Animator animator;
     private float rotationSpeed = 5.0f;
     private float coolDown = 0.0f;
+    public Transform spawnPoint;
 
     void Start()
     {
@@ -21,9 +22,15 @@ public class Rat : MonoBehaviour
 
     void Update()
     {
-        if (coolDown > 0.0f) 
+        if (coolDown > 0.0f)
         {
             coolDown -= Time.deltaTime;
+        }
+
+        if (ResetButton.ResetPressed)
+        {
+            ResetButton.ResetPressed = false;
+            transform.position = spawnPoint.transform.position;
         }
     }
 
