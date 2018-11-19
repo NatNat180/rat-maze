@@ -7,8 +7,8 @@ public class Rat : MonoBehaviour
 
     private Rigidbody ratBody;
     public float speed = 0.3f;
-    public static bool RatInMaze = true; // set to false when the game is ready
-    private bool isRatMoving = true;
+    public static bool RatInMaze = false;
+    private bool isRatMoving = false;
     private Animator animator;
     private float rotationSpeed = 5.0f;
     private float coolDown = 0.0f;
@@ -30,7 +30,11 @@ public class Rat : MonoBehaviour
         if (ResetButton.ResetPressed)
         {
             ResetButton.ResetPressed = false;
-            transform.position = spawnPoint.transform.position;
+            RatInMaze = true;
+            isRatMoving = true;
+            Vector3 newSpawn = spawnPoint.transform.position;
+            transform.position = new Vector3(newSpawn.x, 7.379f, newSpawn.z);
+            Debug.Log("position = " + transform.position);
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
     }
