@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 {
 
     public float timeLeft;
-	public TextMeshProUGUI timerText;
+	public TextMeshPro timerText;
 
     void Start()
     {
