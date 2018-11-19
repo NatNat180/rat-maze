@@ -29,5 +29,11 @@ public class Timer : MonoBehaviour
                 SceneManager.LoadScene("GameOver");
             }
         }
+
+        if (ResetButton.ResetPressed)
+        {
+            Rat.RatInMaze = true;
+            timeLeft = 300.0f;
+        }
     }
 }
