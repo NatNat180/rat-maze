@@ -31,6 +31,7 @@ public class Rat : MonoBehaviour
         {
             ResetButton.ResetPressed = false;
             transform.position = spawnPoint.transform.position;
+            transform.rotation = Quaternion.Euler(0, 90, 0);
         }
     }
 
