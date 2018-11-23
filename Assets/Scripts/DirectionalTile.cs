@@ -61,7 +61,7 @@ public class DirectionalTile : MonoBehaviour
                         downArrow.material.color = originalColor;
                         rightArrow.material.color = originalColor;
                         leftArrow.material.color = Color.green;
-                        Debug.Log("works");
+                       
                     }
 
 

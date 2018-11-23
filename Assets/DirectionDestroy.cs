@@ -11,13 +11,21 @@ public class DirectionDestroy : MonoBehaviour
     }
 
 
-    
+
     void OnTriggerEnter(Collider collider)
     {
-    
+
         if (collider.transform.tag == "Wall")
         {
-           Rndr.enabled =false;
-         }
+            Rndr.enabled = false;
+        }
+
+    }
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.transform.tag == "Wall")
+        {
+            Rndr.enabled = true;
+        }
     }
 }
