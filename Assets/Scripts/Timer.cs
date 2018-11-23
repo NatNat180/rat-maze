@@ -22,7 +22,6 @@ public class Timer : MonoBehaviour
         if (Rat.RatInMaze == true)
         {
             AudioSource audio = GetComponent<AudioSource>();
-
             audio.clip = Click;
             audio.Play();
             timeLeft -= Time.deltaTime;
@@ -35,10 +34,11 @@ public class Timer : MonoBehaviour
             }
         }
 
-        if (ResetButton.ResetPressed)
+        if (Rat.RatReset)
         {
-            Rat.RatInMaze = true;
+            //Rat.RatInMaze = true;
             timeLeft = 300.0f;
+            Rat.RatReset = false;
         }
     }
 }

@@ -8,11 +8,12 @@ public class Rat : MonoBehaviour
     private Rigidbody ratBody;
     public float speed = 0.3f;
     public static bool RatInMaze = false;
-    private bool isRatMoving = false;
+    private bool isRatMoving = true;
     private Animator animator;
     private float rotationSpeed = 5.0f;
     private float coolDown = 0.0f;
     public Transform spawnPoint;
+    public static bool RatReset = false;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Rat : MonoBehaviour
             ResetButton.ResetPressed = false;
             RatInMaze = true;
             isRatMoving = true;
+            RatReset = true;
             Vector3 newSpawn = spawnPoint.transform.position;
             transform.position = new Vector3(newSpawn.x, 7.379f, newSpawn.z);
             Debug.Log("position = " + transform.position);
@@ -118,8 +120,7 @@ public class Rat : MonoBehaviour
         //     yield return new WaitForEndOfFrame();
         // }
         // isRatMoving = true;
-        AudioSource audio = GetComponent<AudioSource>();
-        
+        AudioSource audio = GetComponent<AudioSource>(); 
         audio.clip = Click;
         audio.Play();
         animator.SetTrigger("Turning");

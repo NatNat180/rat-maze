@@ -12,6 +12,11 @@ public class ResetButton : MonoBehaviour
         ResetPressed = false;
     }
 
+    void Update()
+    {
+        Debug.Log("Reset Pressed = " + ResetPressed);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "HandPointer")
